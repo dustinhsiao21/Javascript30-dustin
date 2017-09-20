@@ -1,9 +1,9 @@
-#Array Cardio Day1#
+# Array Cardio Day1
 
-##摘要##
+## 摘要
 本篇主要介紹幾個JS array的使用方式。包含`filter()`，`map()`，`sort()`，`reduce()`。
 
-##內容##
+## 內容
 - `filter()`:  用來過濾物件條件中的選項，並收集回傳`true`的陣列。
 
 ```Javascript

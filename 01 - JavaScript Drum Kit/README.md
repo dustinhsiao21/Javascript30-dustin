@@ -1,6 +1,6 @@
-#Drum kit
+# Drum kit
 
-###摘要
+### 摘要
 
 1. 利用輸入鍵盤的案件事件`keydown`觸發功能，利用`keyCode`取值，並將`keyCode`的值對應到`data-key`，接者對相對應的`audioaudio[data-key="${e.keyCode}"]`放出音樂`audio.play()`。
 
@@ -12,7 +12,7 @@ window.addEventListener('keydown', playsound);
 3. 利用`selector.classList.add('playing')`，可將選定的標籤加入class的後綴字；同理用`selector.classList.remove('playing')`可移除選定的class後綴字。
 4. 事件`transitionend`使用方式:當使用過`transition`後執行callback內容。
 
-###CSS概念
+### CSS概念
 
 1. flex基本用法:
 	- align-items : center; //垂直置中

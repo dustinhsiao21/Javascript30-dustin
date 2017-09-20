@@ -1,6 +1,6 @@
-#JS&CSS CLOCK
+# JS&CSS CLOCK
 
-##摘要
+## 摘要
 
 1. 橫線使用`transform:rotate(90deg)`會變成直線，預設情況下，會以中心點當作軸心旋轉(50%)，若要移動軸心則要使用`transform-origin:100%`(最右側)。
 2. `transition-timing-function:ease`可當作動畫的呈現效果。

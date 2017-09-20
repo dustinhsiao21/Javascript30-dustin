@@ -1,6 +1,6 @@
-#Update CSS variable with JS
+# Update CSS variable with JS
 
-##摘要 
+## 摘要
 本篇要做的事情是Javascript 和 CSS3 去改變 CSS的值，範例是改變了內邊距(padding), 模糊度(blur)及顏色，並同時對標題得字進行改變。
 
 大致上的想法如下:
@@ -11,14 +11,14 @@
 ##重點提醒
 
 1. `type="range"`會呈現可左右移動的滑動桿。
-```
+```html
 <input type="range" min="0" max="100" step="1" value="10">
 ```
 2. `:root`是DOM元件的根元素，相當於`<html>`，一般會把CSS的變數聲明在內，CSS3原生的變數表示法: `--variable`;
 
-```
+```css
 \\宣告方式
-:root{   
+:root{
 	--base: #ffc600;
     --blur: 10px;
     --spacing: 10px;

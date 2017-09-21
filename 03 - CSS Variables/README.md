@@ -8,7 +8,7 @@
 1. 在css中定義變數，並把變數關連到頁面。
 2. 利用Javascript抓取改變的量(使用change監聽顏色改變及mouseover事件監聽range)，並更新CSS的變數值。
 
-##重點提醒
+## 重點提醒
 
 1. `type="range"`會呈現可左右移動的滑動桿。
 ```html

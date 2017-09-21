@@ -11,3 +11,7 @@ Javascript30是一個線上的教學課程，利用三十天的時間每天實�
 1. Drum kit
 2. JS and CSS Clock
 3. CSS variable
+4. Array Cardio Day1
+5. Flex Panel Gallery
+6. Type Ahead
+7. Array Cardio Day2

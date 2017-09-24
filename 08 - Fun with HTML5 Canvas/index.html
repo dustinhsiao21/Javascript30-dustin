@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+ctx.strokeStyle = '#BADA55';
+ctx.lineJoin = 'round'; //round為圓弧。
+ctx.lineCap = 'round'; //round為圓弧。
+ctx.lineWidth = 100;
+
+let isDrawing = false; //一開始先定義為false
+let lastX = 0;//繪畫起始位置
+let lastY = 0;//繪畫起始位置
+let hue = 0;//設定顏色參數
+let direction = true //設定軌跡反轉參數
+
+function draw(e){
+  if (!isDrawing) return;
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;//更改顏色。
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY); //畫到的位置。
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+
+  hue++;
+  if (hue >= 360){
+  	hue = 0;
+  }
+
+  if (ctx.lineWidth >=100 || ctx.lineWidth <= 1){
+  	direction = !direction;
+  }
+
+  if (direction){
+  	ctx.lineWidth++
+  }else{
+  	ctx.lineWidth--
+  }
+}
+
+canvas.addEventListener('mousedown', (e)=> {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+}); //開始繪圖]
+canvas.addEventListener('mousemove', draw);//繪製圖片中
+canvas.addEventListener('mouseup', () => isDrawing = false);//完成繪圖
+canvas.addEventListener('mouseout', () => isDrawing = false);//取消繪圖
+</script>
+<style>
+  html, body {
+    margin:0;
+  }
+</style>
+
+</body>
+</html>

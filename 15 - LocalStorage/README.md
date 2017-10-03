@@ -61,7 +61,8 @@ function populateList(plates = [], platesList){
     return `
     	<li>
     		<input type="checkbox" data-index=${i} id="item${1}" ${plate.done ? 'checked' : ''}/> //若done為true則顯示checked，若無顯示空字串。
-    		<label for "item${i}">${plate.text}</label>
+    		<label for="item${i}">${plate.text}</label>
+		</li>
     `;
   }).join('');
 }
@@ -84,3 +85,23 @@ function addItem(e){
  populateList(items, itemsList);//記得要在最後插入這段，否則每次re-load之後還要按下submit才會出現資料!
 ```
 
+目前應該可以看到輸入項目皆顯示出來囉!也可以檢查瀏覽器的LocalStorage是否有存值。
+
+> 接下來要介紹Event Delegate
+
+- `Event Delegate`:在一般時候，使用`event binding`即可達到每一個要求。`Event binding`主要是綁定特定DOM元素後透過註冊Event觸發DOM function達到效果。而Event Delegate則是綁定DOM的父元件而非子元件，讓子元件在更新後也可以透過父元件操作。
+- 最簡單的例子則是先用`Event binding`綁定子元件後新增元件，此時新增的元件並不會有已經綁定的事件。此時若透過`Event Delegate`綁定父元件，子元件也會被父元件綁定的事件觸發，事件會上傳給父元件，父元件會帶著子元件一同返回事件。
+- `toggleDone()`則是要利用此一特性，用`click`事件綁定`itemsList`(.plates)，當子元件('input')被`click`後會觸發toggleDone，此時印出`e.target`會發現返回`input`及`label`兩個元素。此時我們僅需要`input`元素，篩選`if (!e.target.matches('input')) return;`後把點擊的項目儲存後拿來改變`done`的值，並存入`LocalStorage`。
+
+```javascript
+  function toggleDone(e) {
+    if (!e.target.matches('input')) return; // skip this unless it's an input
+    const el = e.target;
+    const index = el.dataset.index;
+    items[index].done = !items[index].done;
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
+```
+
+> 到這邊就完成今天的項目了!

@@ -45,19 +45,23 @@
 
   function populateList(plates = [], platesList){ //當沒輸入時為空陣列
     platesList.innerHTML = plates.map((plate, i)=>{
-      return `
-        <li>
-          <input type="checkbox" data-index=${i} id="item${1}" ${plate.done ? 'checked' : ''}/>
-          <label for "item${i}">${plate.text}</label>
-        `;
+      return `<li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+          <label for="item${i}">${plate.text}</label>
+        </li>`;
     }).join('');
   }
-  function toggleDown(){
-
+  function toggleDone(e) {
+    if (!e.target.matches('input')) return; // skip this unless it's an input
+    const el = e.target;
+    const index = el.dataset.index;
+    items[index].done = !items[index].done;
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
   }
 
   addItems.addEventListener('submit', addItem);
-  addItems.addEventListener('click', toggleDown);
+  itemsList.addEventListener('click', toggleDone);
 
   populateList(items, itemsList);//記得要在最後插入這段，否則每次re-load之後還要按下submit才會出現資料!
 

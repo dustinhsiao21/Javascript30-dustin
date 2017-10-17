@@ -62,7 +62,6 @@
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX);
-        console.log(scrollLeft, walk);
         slider.scrollLeft = scrollLeft - walk;
     });
 

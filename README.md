@@ -8,7 +8,7 @@ Javascript30是一個線上的教學課程，利用三十天的時間每天實�
 
 ##實際demo目錄
 
-1. Drum kit
+1. [Drum kit](./01%20-%20JavaScript%20Drum%20Kit)
 2. JS and CSS Clock
 3. CSS variable
 4. Array Cardio Day1
